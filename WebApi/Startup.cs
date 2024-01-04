@@ -1,4 +1,6 @@
 using Application.DependencyInjection;
+using Application.Repositories;
+using Application.Repositories.Seeds;
 
 namespace WebApi
 {
@@ -6,29 +8,24 @@ namespace WebApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            // Adicione outros serviços necessários
             services.AddControllers();
-
-            // Adicione seus serviços personalizados
             services.AddInMemoryDatabase();
-
-            // Adicione o Swagger
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, InMemoryDatabase database)
         {
             if (env.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthorization();
+            CountriesSeed.Initialize(database);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
