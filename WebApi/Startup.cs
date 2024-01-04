@@ -25,11 +25,16 @@ namespace WebApi
 
             app.UseRouting();
             app.UseAuthorization();
-            CountriesSeed.Initialize(database);
+            SeedGen(database);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void SeedGen(InMemoryDatabase database)
+        {
+            CountriesSeed.Initialize(database);
         }
     }
 }
