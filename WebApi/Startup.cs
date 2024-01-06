@@ -37,6 +37,8 @@ namespace WebApi
             new CountriesSeed().Initialize(database);
             new TechnologiesSeed().Initialize(database);
             new PartnerTypesSeed().Initialize(database);
+            new SectorsSeed().Initialize(database);
+            new OrganizationsSeed().Initialize(database);
         }
     }
 }
