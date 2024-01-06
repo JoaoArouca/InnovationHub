@@ -34,7 +34,9 @@ namespace WebApi
 
         public void SeedGen(InMemoryDatabase database)
         {
-            CountriesSeed.Initialize(database);
+            new CountriesSeed().Initialize(database);
+            new TechnologiesSeed().Initialize(database);
+            new PartnerTypesSeed().Initialize(database);
         }
     }
 }

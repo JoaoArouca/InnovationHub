@@ -2,7 +2,7 @@
 
 namespace Application.Repositories.Seeds
 {
-    public static class CountriesSeed
+    public class CountriesSeed : ISeedInitializer
     {
         private static readonly List<string> _initialCountriesNames = new()
         {
@@ -17,7 +17,7 @@ namespace Application.Repositories.Seeds
             "Other countries"
         };
 
-        public static void Initialize(InMemoryDatabase database)
+        public override void Initialize(InMemoryDatabase database)
         {
             List<CountryModel> countries = new();
             foreach (string countryName in _initialCountriesNames)
@@ -26,7 +26,7 @@ namespace Application.Repositories.Seeds
                 countries.Add(country);
             }
 
-            database.AddRange(countries);
+            database.CountriesDB.AddRange(countries);
             database.SaveChanges();
         }
     }

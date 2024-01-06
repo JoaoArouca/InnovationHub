@@ -11,5 +11,9 @@ namespace Application.Repositories
         }
 
         public DbSet<CountryModel> CountriesDB { get; set; }
+        public DbSet<TechnologyModel> TechnologiesDB { get; set;}
+        public DbSet<OrganizationModel> OrganizationsDB { get; set; }
+        public DbSet<PartnerTypeModel> PartnerTypesDB { get; set; }
+        public DbSet<SectorModel> SectorsDB { get; set;}
     }
 }
