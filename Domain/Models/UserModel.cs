@@ -9,9 +9,9 @@
         public Role Role { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public UserModel(Guid id, string name, string email, string password, Role role)
+        public UserModel(string name, string email, string password, Role role)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Name = name;
             Email = email;
             Password = password;

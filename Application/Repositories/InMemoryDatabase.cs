@@ -1,4 +1,5 @@
-﻿using Domain.Models.Auxiliary;
+﻿using Domain.Models;
+using Domain.Models.Auxiliary;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Repositories
@@ -15,5 +16,6 @@ namespace Application.Repositories
         public DbSet<OrganizationModel> OrganizationsDB { get; set; }
         public DbSet<PartnerTypeModel> PartnerTypesDB { get; set; }
         public DbSet<SectorModel> SectorsDB { get; set;}
+        public DbSet<UserModel> UsersDB { get; set; }
     }
 }

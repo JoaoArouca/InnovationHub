@@ -8,6 +8,7 @@ namespace WebApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMediatR();
             services.AddControllers();
             services.AddInMemoryDatabase();
             services.AddEndpointsApiExplorer();

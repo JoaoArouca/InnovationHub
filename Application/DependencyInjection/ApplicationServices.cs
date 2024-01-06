@@ -15,5 +15,11 @@ namespace Application.DependencyInjection
         //{
         //    services.AddTransient<IModelValidator<input>, output>().
         //}
+
+        public static IServiceCollection AddMediatR(this IServiceCollection services)
+        {
+            services.AddMediatR();
+            return services;
+        }
     }
 }
