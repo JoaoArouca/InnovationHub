@@ -1,4 +1,5 @@
 ﻿using Application.Repositories;
+using Application.UseCases.User.Create;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.DependencyInjection
@@ -15,10 +16,10 @@ namespace Application.DependencyInjection
         //{
         //    services.AddTransient<IModelValidator<input>, output>().
         //}
-
-        public static IServiceCollection AddMediatR(this IServiceCollection services)
+        public static IServiceCollection AddMediator(this IServiceCollection services)
         {
-            services.AddMediatR();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserUseCase).Assembly));
+
             return services;
         }
     }

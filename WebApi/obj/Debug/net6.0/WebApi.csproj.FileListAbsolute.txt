@@ -46,3 +46,5 @@ C:\Users\jarou\rumo10k\InnovationHub\WebApi\bin\Debug\net6.0\Application.dll
 C:\Users\jarou\rumo10k\InnovationHub\WebApi\bin\Debug\net6.0\Domain.dll
 C:\Users\jarou\rumo10k\InnovationHub\WebApi\bin\Debug\net6.0\Application.pdb
 C:\Users\jarou\rumo10k\InnovationHub\WebApi\bin\Debug\net6.0\Domain.pdb
+C:\Users\jarou\rumo10k\InnovationHub\WebApi\bin\Debug\net6.0\MediatR.dll
+C:\Users\jarou\rumo10k\InnovationHub\WebApi\bin\Debug\net6.0\MediatR.Contracts.dll
