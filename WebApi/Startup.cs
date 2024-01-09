@@ -10,7 +10,7 @@ namespace WebApi
         {
             services.AddControllers();
             services.AddMediator();
-            //services.AddUseCases();
+            services.AddValidators();
             services.AddInMemoryDatabase();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
