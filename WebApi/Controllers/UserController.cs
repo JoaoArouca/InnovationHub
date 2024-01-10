@@ -15,12 +15,14 @@ namespace WebApi.Controllers
         private readonly IMediator _mediator;
         private readonly InMemoryDatabase _database;
         private readonly IValidator<CreateUserInput> _createValidator;
+        private readonly IValidator<string> _getUserByIdValidator;
 
-        public UserController(InMemoryDatabase database, IMediator mediator, IValidator<CreateUserInput> createValidator)
+        public UserController(InMemoryDatabase database, IMediator mediator, IValidator<CreateUserInput> createValidator, IValidator<string> getUserByIdValidator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _database = database;
             _createValidator = createValidator ?? throw new ArgumentNullException(nameof(createValidator));
+            _getUserByIdValidator = getUserByIdValidator ?? throw new ArgumentNullException(nameof(getUserByIdValidator));
         }
 
         [HttpPost]
@@ -44,6 +46,19 @@ namespace WebApi.Controllers
             }
 
             return BadRequest(output);
+        }
+
+        [HttpGet]
+        [Route("get-user-by-id")]
+        public async Task<IActionResult> GetUserById([Required] string userId)
+        {
+            var validation = await _getUserByIdValidator.ValidateAsync(userId);
+
+            if (!validation.IsValid)
+            {
+                return BadRequest(validation.Errors);
+            }
+            throw new NotImplementedException();
         }
 
         [HttpGet]

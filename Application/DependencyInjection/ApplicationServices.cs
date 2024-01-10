@@ -17,6 +17,7 @@ namespace Application.DependencyInjection
         public static IServiceCollection AddValidators(this IServiceCollection services)
         {
             services.AddScoped<IValidator<CreateUserInput>, CreateUserValidator>();
+            services.AddTransient<IValidator<string>, GetUserByIdValidator>();
             return services;
         }
         public static IServiceCollection AddMediator(this IServiceCollection services)
