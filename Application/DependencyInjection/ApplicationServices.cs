@@ -1,5 +1,6 @@
 ﻿using Application.Repositories;
 using Application.UseCases.User.Create;
+using Application.UseCases.User.GetById;
 using Application.Validators.User;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,7 @@ namespace Application.DependencyInjection
         public static IServiceCollection AddMediator(this IServiceCollection services)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserUseCase).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetUserByIdUseCase).Assembly));
 
             return services;
         }

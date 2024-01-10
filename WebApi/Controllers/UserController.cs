@@ -1,5 +1,6 @@
 using Application.Repositories;
 using Application.UseCases.User.Create;
+using Application.UseCases.User.GetById;
 using Domain.Models;
 using FluentValidation;
 using MediatR;
@@ -58,7 +59,16 @@ namespace WebApi.Controllers
             {
                 return BadRequest(validation.Errors);
             }
-            throw new NotImplementedException();
+            GetUserByIdInput input = new(userId);
+
+            GetUserByIdOutput output = await _mediator.Send(input).ConfigureAwait (false);
+
+            if (output.Result != null)
+            {
+                return Ok(output);
+            }
+
+            return BadRequest(output);
         }
 
         [HttpGet]

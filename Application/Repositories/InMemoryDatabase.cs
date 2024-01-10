@@ -17,5 +17,7 @@ namespace Application.Repositories
         public DbSet<PartnerTypeModel> PartnerTypesDB { get; set; }
         public DbSet<SectorModel> SectorsDB { get; set;}
         public DbSet<UserModel> UsersDB { get; set; }
+
+        public UserModel GetUserById(Guid id) => UsersDB.FirstOrDefault(user => user.Id == id);
     }
 }
