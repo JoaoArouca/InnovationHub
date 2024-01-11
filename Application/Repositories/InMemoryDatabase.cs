@@ -18,6 +18,7 @@ namespace Application.Repositories
         public DbSet<SectorModel> SectorsDB { get; set;}
         public DbSet<UserModel> UsersDB { get; set; }
 
-        public UserModel GetUserById(Guid id) => UsersDB.FirstOrDefault(user => user.Id == id);
+        public UserModel? GetUserById(Guid id) => UsersDB.FirstOrDefault(user => user.Id == id);
+        public UserModel? GetUserByEmail(string email) => UsersDB.FirstOrDefault(user => user.Email == email);
     }
 }

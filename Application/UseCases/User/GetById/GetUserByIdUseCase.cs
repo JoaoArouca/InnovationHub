@@ -19,7 +19,7 @@ namespace Application.UseCases.User.GetById
         {
             GetUserByIdOutput userByIdOutput = new();
 
-            UserModel user = _database.GetUserById(request.UserId);
+            UserModel? user = _database.GetUserById(request.UserId);
 
             if (user == null)
             {
